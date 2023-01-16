@@ -1,0 +1,32 @@
+import pandas as pd
+
+
+configfile: "config/config.yaml"
+
+
+IDS = [str(i) for i in config["run_ids"]]
+samples = pd.read_csv("config/samples.csv", index_col="folder")
+FOLDERS = samples.index.tolist()
+
+
+# Load rules
+include: "rules/protein_rms.smk"
+include: "rules/peptide_rms.smk"
+
+
+rule all:
+    input:
+        protein_rmsd_single=expand(
+            "results/{folder}/protein/{i}-backbone_rmsd.png", folder=FOLDERS, i=IDS
+        ),
+        protein_rmsd_multi=expand(
+            "results/{folder}/protein/backbone_rmsd_all.png", folder=FOLDERS
+        ),
+        peptide_rmsd_single=expand(
+            "results/{folder}/peptide/{i}-peptide_backbone_rmsd.png",
+            folder=FOLDERS,
+            i=IDS,
+        ),
+        peptide_rmsd_multi=expand(
+            "results/{folder}/peptide/peptide_backbone_rmsd_all.png", folder=FOLDERS
+        ),

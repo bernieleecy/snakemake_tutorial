@@ -1,0 +1,9 @@
+run_ids :
+  - 1
+  - 2
+  - 3
+
+xtc_step : 20
+plot_step : 500
+
+mpl_style : config/trim_plotting.mplstyle

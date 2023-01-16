@@ -4,7 +4,7 @@ A simple workflow demonstrating the use of Snakemake in computational (bio)chemi
 
 To get going:
 ```
-git clone XXXX
+git clone git@github.com:bernieleecy/snakemake_tutorial.git
 conda install -c conda-forge mamba # if mamba is not available
 mamba env create -f environment.yml
 conda activate snakemake_demo

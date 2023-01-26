@@ -16,6 +16,6 @@ The above `environment.yml` is unlikely to work on Windows (see <https://snakema
 Trying something like:
 ```
 conda install -c conda-forge mamba
-mamba create -c bioconda -c cona-forge -n snakemake_demo python=3.11.0 seaborn=0.12.2 snakemake-minimal
+mamba create -c bioconda -c conda-forge -n snakemake_demo python=3.11.0 seaborn=0.12.2 snakemake-minimal
 ```
 Might work better (but I do not have a Windows machine available to test this). 
